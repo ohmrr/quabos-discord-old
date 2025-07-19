@@ -1,0 +1,42 @@
+{
+	"name": "bot",
+	"private": true,
+	"type": "module",
+	"description": "Discord bot made with Discord.js v14, which uses Markov chaining to generate new sentences.",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "NODE_ENV=development nodemon dist/index.js",
+		"prod": "NODE_ENV=production node dist/index.js",
+		"start": "node dist/index.js",
+		"watch": "tsc --watch",
+		"build": "tsc",
+		"format": "prettier . --write",
+		"fmt": "pnpm format",
+		"generate": "prisma generate"
+	},
+	"author": {
+		"name": "ohmrr",
+		"url": "https://github.com/ohmrr"
+	},
+	"license": "GPL-3.0-only",
+	"packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184",
+	"dependencies": {
+		"@discordjs/voice": "^0.18.0",
+		"@prisma/client": "^6.12.0",
+		"bufferutil": "^4.0.9",
+		"discord.js": "^14.21.0",
+		"dotenv": "^17.2.0",
+		"markov-strings": "^3.0.2",
+		"moment-timezone": "^0.6.0",
+		"pino": "^9.7.0",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.15",
+		"nodemon": "^3.1.10",
+		"pino-pretty": "^13.0.0",
+		"prettier": "^3.6.2",
+		"prisma": "^6.12.0",
+		"typescript": "^5.8.3"
+	}
+}

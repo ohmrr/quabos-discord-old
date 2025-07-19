@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Guild {
+  id                  String   @id @map("_id")
+  createdAt           DateTime @default(now())
+  probability         Float    @default(0.05)
+  inactivityTrigger   Boolean  @default(false)
+  inactivityThreshold Int?
+
+  channels Channel[]
+  messages Message[]
+
+  @@map("guilds")
+}
+
+model Channel {
+  id        String   @id @map("_id")
+  createdAt DateTime @default(now())
+  guildId   String
+
+  guild    Guild     @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  messages Message[]
+
+  @@map("channels")
+}
+
+model Message {
+  id        String @id @map("_id")
+  content   String
+  authorId  String
+  guildId   String
+  channelId String
+
+  guild       Guild        @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  channel     Channel      @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  attachments Attachment[]
+
+  @@map("messages")
+}
+
+model Attachment {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  url       String
+  messageId String
+
+  message Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+
+  @@map("attachments")
+}
+
+model User {
+  id              String   @id @map("_id")
+  globalIgnored   Boolean  @default(false)
+  guildIgnoredIds String[]
+
+  @@map("users")
+}

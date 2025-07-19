@@ -1,0 +1,22 @@
+{
+  "name": "quabos-discord",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format": "pnpm -r format",
+    "fmt": "pnpm format",
+    "start": "pnpm --filter bot start",
+    "dev": "pnpm --filter bot dev",
+    "prod": "pnpm --filter bot prod"
+  },
+  "author": {
+    "name": "ohmrr",
+    "url": "https://github.com/ohmrr"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ohmrr/quabos-discord.git"
+  },
+  "license": "GPL-3.0-only",
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
+}
