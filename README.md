@@ -1,4 +1,4 @@
-# 👽 Quabos 
+# 👽 Quabos
 
 Quabos is an entertainment Discord bot built with TypeScript, Discord.js v14 and MongoDB. Using a Markov chaining algorithm, it will read in messages sent in your server and generate its own messages. Quabos is heavily inspired by the [nMarkov bot](https://nmarkov.vixenteam.xyz/).
 
@@ -18,28 +18,43 @@ pnpm install
 
 ## ⚙️ Configuration
 
-In the packages/bot directory, you can create or rename `.env.example` to `.env`.
+In the `packages/bot` directory, you can create or rename `.env.example` to `.env`.
+
 Fill out all of the values with your Discord Bot Token, and with your MongoDB connection string.
 
 **⚠️ Never share your connection string or discord token with anyone. Also ensure that your .env file is not being tracked by Git.**
 
 ```sh
-CONNECTION_STRING=""
-DISCORD_TOKEN=""
-
-NODE_ENV="" # Can be either "development" or "production"
-DEV_GUILD_ID="" # If NODE_ENV is development, you will need a development discord server
+NODE_ENV="production"    # Required, must either "development" or "production".
+DATABASE_URL=""          # Required, MongoDB Atlas connection string.
+DISCORD_TOKEN=""         # Required, from Discord Developer Portal.
+DEV_DISCORD_TOKEN=""     # Optional, secondary token for development.
+DEV_GUILD_ID=""          # Optional, only necessary if NODE_ENV="development".
+TZ="America/Los_Angeles" # Optional, IANA Time Zone.
 ```
+
+**Note**: See `/packages/bot/.env.example` for more information.
 
 ## 🚀 Getting Started
 
+### 💻 Option 1: Regular Setup
+
 ```sh
-cd packages/bot
-pnpm build
-pnpm start
+pnpm --filter=bot build
+pnpm --filter=bot start
 ```
 
-This will transpile the TypeScript code to JavaScript, and then start your own instance of Quabos as long as you have followed the above steps correctly. 
+This will transpile the TypeScript code to JavaScript, and then start your own instance of Quabos as long as you have followed the above steps correctly.
+
+### 🐋 Option 2: Docker Setup
+
+If you would prefer to setup Quabos using a Docker container instead, you **must** configure your `.env` file first as shown above, then you may run the following:
+
+```sh
+docker-compose up --build -d
+```
+
+This will build the Docker image and start your Quabos instance in a container running in the background.
 
 ## 🌌 Features & Commands
 
@@ -53,7 +68,7 @@ Quabos is still a work in progress, but below are many of the commands that are 
 
 `/config probability set [percentage]` - Changes the percent chance that Quabos will randomly respond when a message is sent in the server (5% by default).
 
-`/config probability view` - Sends the current server's probability of Quabos randomly responding to messages sent. 
+`/config probability view` - Sends the current server's probability of Quabos randomly responding to messages sent.
 
 `/config resetlog` - Deletes all messages stored in the database for that specific guild.
 

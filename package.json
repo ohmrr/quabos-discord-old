@@ -5,7 +5,6 @@
   "scripts": {
     "format": "pnpm -r format",
     "fmt": "pnpm format",
-    "start": "pnpm --filter bot start",
     "dev": "pnpm --filter bot dev",
     "prod": "pnpm --filter bot prod"
   },

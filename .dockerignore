@@ -1,0 +1,36 @@
+# Git
+.git
+.gitignore
+.github
+
+# Docker
+Dockerfile
+docker-compose.yaml
+
+# Dependencies
+**/node_modules
+
+# Logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/logs
+
+# Development
+**/.prettierrc*
+**/.eslintrc*
+
+# Build Output
+**/dist
+
+# Env
+**/.env
+**/.env.example
+
+# Documentation
+*.md
+LICENSE
+
+# Etc
+.vscode
+**/.DS_Store
