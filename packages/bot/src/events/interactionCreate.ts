@@ -5,37 +5,37 @@ import handleCooldown from '../utils/handleCooldown.js';
 import logger from '../utils/logger.js';
 
 export default createEvent('interactionCreate', false, async interaction => {
-	let command: Command | undefined;
+  let command: Command | undefined;
 
-	if (interaction.isChatInputCommand()) {
-		command = interaction.client.commands.get(interaction.commandName);
-		if (!command) return;
+  if (interaction.isChatInputCommand()) {
+    command = interaction.client.commands.get(interaction.commandName);
+    if (!command) return;
 
-		const hasCooldown = await handleCooldown(interaction, command);
-		if (hasCooldown) return;
+    const hasCooldown = await handleCooldown(interaction, command);
+    if (hasCooldown) return;
 
-		try {
-			await command.execute(interaction);
-		} catch (error) {
-			logger.error({ err: error, command }, `${utilEmojis.error} Unable to execute slash command.`);
-			await interaction.reply({
-				content: `${utilEmojis.error} There was an error executing the slash command`,
-				flags: 'Ephemeral',
-			});
-		}
-	}
+    try {
+      await command.execute(interaction);
+    } catch (error) {
+      logger.error({ err: error, command }, `${utilEmojis.error} Unable to execute slash command.`);
+      await interaction.reply({
+        content: `${utilEmojis.error} There was an error executing the slash command`,
+        flags: 'Ephemeral',
+      });
+    }
+  }
 
-	if (interaction.isAutocomplete()) {
-		command = interaction.client.commands.get(interaction.commandName);
-		if (!command || !command.autocomplete) return;
+  if (interaction.isAutocomplete()) {
+    command = interaction.client.commands.get(interaction.commandName);
+    if (!command || !command.autocomplete) return;
 
-		try {
-			await command.autocomplete(interaction);
-		} catch (error) {
-			logger.error(
-				{ err: error, command },
-				`${utilEmojis.error} Unable to execute autocomplete command.`,
-			);
-		}
-	}
+    try {
+      await command.autocomplete(interaction);
+    } catch (error) {
+      logger.error(
+        { err: error, command },
+        `${utilEmojis.error} Unable to execute autocomplete command.`,
+      );
+    }
+  }
 });
