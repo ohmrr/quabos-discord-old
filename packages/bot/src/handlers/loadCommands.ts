@@ -45,7 +45,7 @@ async function loadCommandFromFile(filePath: string): Promise<void> {
 
     if (!command.data || !command.execute) {
       logger.warn(
-        filePath,
+        { filePath },
         `${utilEmojis.error} Command is missing properties. Skipping onto the next file...`,
       );
       return;
