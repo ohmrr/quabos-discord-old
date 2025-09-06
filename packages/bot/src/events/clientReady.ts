@@ -3,7 +3,7 @@ import createEvent from '../interfaces/event.js';
 import logger from '../utils/logger.js';
 import { celestialEmojis, utilEmojis } from '../utils/emoji.js';
 
-export default createEvent('ready', false, async client => {
+export default createEvent('clientReady', false, async client => {
   const wordArt = `   ____              __              
   / __ \\__  ______ _/ /_  ____  _____
  / / / / / / / __ \`/ __ \\/ __ \\/ ___/

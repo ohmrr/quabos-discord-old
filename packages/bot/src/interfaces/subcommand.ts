@@ -7,6 +7,6 @@ import type {
 export default interface Subcommand {
   data: SlashCommandSubcommandBuilder;
   permissions?: PermissionsBitField;
-  usage: string;
+  usage: `/${string}`;
   execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
 }

@@ -1,6 +1,6 @@
 packages:
   - packages/*
-
+  
 onlyBuiltDependencies:
   - '@prisma/engines'
   - bufferutil

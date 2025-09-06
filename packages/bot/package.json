@@ -22,21 +22,21 @@
   "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184",
   "dependencies": {
     "@discordjs/voice": "^0.18.0",
-    "@prisma/client": "^6.12.0",
+    "@prisma/client": "^6.15.0",
     "bufferutil": "^4.0.9",
-    "discord.js": "^14.21.0",
-    "dotenv": "^17.2.0",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.2",
     "markov-strings": "^3.0.2",
     "moment-timezone": "^0.6.0",
-    "pino": "^9.7.0",
+    "pino": "^9.9.4",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "^24.0.15",
+    "@types/node": "^24.3.1",
     "nodemon": "^3.1.10",
-    "pino-pretty": "^13.0.0",
+    "pino-pretty": "^13.1.1",
     "prettier": "^3.6.2",
-    "prisma": "^6.12.0",
-    "typescript": "^5.8.3"
+    "prisma": "^6.15.0",
+    "typescript": "^5.9.2"
   }
 }
